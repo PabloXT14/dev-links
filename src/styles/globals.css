@@ -48,12 +48,38 @@
   --color-highlight: var(--color-highlight);
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: 'Times New Roman', monospace;
+
+  /* Body Typography */
+  --text-body-sm-size: 0.875rem; /* 14px */
+  --text-body-sm-line-height: 1.5rem; /* 24px */ 
+  --text-body-sm-weight: 400;
+
+  --text-body-md-size: 1rem;
+  --text-body-md-line-height: 1.5rem;
+  --text-body-md-weight: 500;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), sans-serif;
+  }
+}
+
+/* Typography Utility Classes */
+@utility text-body-sm {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-line-height);
+  font-weight: var(--text-body-sm-weight);
+}
+
+@utility text-body-md {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line-height);
+  font-weight: var(--text-body-md-weight);
 }
