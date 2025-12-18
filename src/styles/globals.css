@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Light Theme */
+:root {
+  --color-bg: #ffffff;
+
+  --color-text-primary: #000000;
+
+  --color-border: rgba(0, 0, 0, 0.5);
+
+  --color-surface-base: rgba(0, 0, 0, 0.05);
+  --color-surface-hover: rgba(0, 0, 0, 0.02);
+
+  --color-highlight: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+.dark {
+  --color-bg: #121214;
+
+  --color-text-primary: #ffffff;
+
+  --color-border: rgba(255, 255, 255, 0.5);
+
+  --color-surface-base: rgba(255, 255, 255, 0.1);
+  --color-surface-hover: rgba(255, 255, 255, 0.05);
+
+  --color-highlight: rgba(255, 255, 255, 0.2);
+}
+
+
+@theme {
+  /* Background & Foreground */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text-primary);
+
+  /* Text */
+  --color-text-primary: var(--color-text-primary);
+
+  /* Stroke / Borders */
+  --color-stroke: var(--color-border);
+
+  /* Surfaces */
+  --color-surface: var(--color-surface-base);
+  --color-surface-hover: var(--color-surface-hover);
+
+  /* Highlight */
+  --color-highlight: var(--color-highlight);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
