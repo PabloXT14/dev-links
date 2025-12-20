@@ -15,7 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    // dark temporário até switch de tema ser implementado
+    <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   )
