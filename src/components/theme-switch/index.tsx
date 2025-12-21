@@ -28,7 +28,7 @@ export const ThemeSwitch = () => {
       checked={isChecked}
       onCheckedChange={(newChecked) => setTheme(newChecked ? "light" : "dark")}
     >
-      <Switch.Thumb className="flex size-8 translate-x-0 items-center justify-center rounded-full bg-text-primary text-background transition-transform will-change-transform data-[state=checked]:translate-x-8">
+      <Switch.Thumb className="flex size-8 translate-x-0 items-center justify-center rounded-full bg-foreground text-background transition-transform will-change-transform data-[state=checked]:translate-x-8">
         {resolvedTheme === "dark" ? (
           <PiMoonStars size={16} />
         ) : (

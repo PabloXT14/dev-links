@@ -10,7 +10,7 @@ export default function Home() {
         <div className="flex w-full flex-col items-center gap-2 p-6">
           <Avatar src="/profile.png" alt="Avatar of Pablo Alan" />
 
-          <span className="text-base text-text-primary">@pabloalan</span>
+          <span className="text-base text-foreground">@pabloalan</span>
         </div>
 
         {/* THEME SWITCH */}

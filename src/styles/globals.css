@@ -4,54 +4,44 @@
 
 /* Light Theme */
 :root {
-  --color-bg: #ffffff;
-
-  --color-text-primary: #000000;
-
-  --color-border: rgba(0, 0, 0, 0.5);
-
-  --color-surface-base: rgba(0, 0, 0, 0.05);
-  --color-surface-hover: rgba(0, 0, 0, 0.02);
-
-  --color-highlight: rgba(0, 0, 0, 0.1);
+  --background: rgba(255, 255, 255, 1);
+  --text: rgba(0, 0, 0, 1);
+  --stroke: rgba(0, 0, 0, 0.5);
+  --surface: rgba(0, 0, 0, 0.05);
+  --surface-hover: rgba(0, 0, 0, 0.02);
+  --highlight: rgba(0, 0, 0, 0.1);
 }
 
 /* Dark Theme */
 .dark {
-  --color-bg: #121214;
-
-  --color-text-primary: #ffffff;
-
-  --color-border: rgba(255, 255, 255, 0.5);
-
-  --color-surface-base: rgba(255, 255, 255, 0.1);
-  --color-surface-hover: rgba(255, 255, 255, 0.05);
-
-  --color-highlight: rgba(255, 255, 255, 0.2);
+  --background: rgba(0, 0, 0, 1);
+  --text: rgba(255, 255, 255, 1);
+  --stroke: rgba(255, 255, 255, 0.5);
+  --surface: rgba(255, 255, 255, 0.1);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  --highlight: rgba(255, 255, 255, 0.2);
 }
 
 
 @theme inline {
   /* Background & Foreground */
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text-primary);
+  --color-background: var(--background);
 
   /* Text */
-  --color-text-primary: var(--color-text-primary);
+  --color-foreground: var(--text);
 
   /* Stroke / Borders */
-  --color-stroke: var(--color-border);
+  --color-stroke: var(--stroke);
 
   /* Surfaces */
-  --color-surface: var(--color-surface-base);
-  --color-surface-hover: var(--color-surface-hover);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
 
   /* Highlight */
-  --color-highlight: var(--color-highlight);
+  --color-highlight: var(--highlight);
 
   /* Fonts */
   --font-sans: var(--font-inter), sans-serif;
-  --font-mono: 'Times New Roman', monospace;
 
   /* Body Typography */
   --text-body-sm-size: 0.875rem; /* 14px */
@@ -73,14 +63,14 @@
 
 /* Typography Utility Classes */
 @utility text-body-sm {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--text-body-sm-size);
   line-height: var(--text-body-sm-line-height);
   font-weight: var(--text-body-sm-weight);
 }
 
 @utility text-body-md {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--text-body-md-size);
   line-height: var(--text-body-md-line-height);
   font-weight: var(--text-body-md-weight);
