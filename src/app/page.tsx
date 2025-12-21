@@ -1,4 +1,5 @@
 import { Avatar } from "@/components/avatar"
+import { ThemeSwitch } from "@/components/theme-switch"
 
 export default function Home() {
   return (
@@ -10,6 +11,11 @@ export default function Home() {
           <Avatar src="/profile.png" alt="Avatar of Pablo Alan" />
 
           <span className="text-base text-text-primary">@pabloalan</span>
+        </div>
+
+        {/* THEME SWITCH */}
+        <div className="flex justify-center">
+          <ThemeSwitch />
         </div>
       </div>
     </main>

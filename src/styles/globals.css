@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Light Theme */
 :root {
   --color-bg: #ffffff;
@@ -29,7 +31,7 @@
 }
 
 
-@theme {
+@theme inline {
   /* Background & Foreground */
   --color-background: var(--color-bg);
   --color-foreground: var(--color-text-primary);
