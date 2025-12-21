@@ -1,4 +1,5 @@
 import { Avatar } from "@/components/avatar"
+import { LinksList } from "@/components/links-list"
 import { ThemeSwitch } from "@/components/theme-switch"
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
         <div className="flex justify-center">
           <ThemeSwitch />
         </div>
+
+        <LinksList />
       </div>
     </main>
   )
