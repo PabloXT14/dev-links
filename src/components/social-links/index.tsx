@@ -25,7 +25,7 @@ const SOCIAL_LINKS = [
 ]
 
 export const SocialLinks = () => (
-  <div className="flex w-full items-center justify-center gap-4 p-6">
+  <div className="flex w-full items-center justify-center gap-4 px-6">
     {SOCIAL_LINKS.map(({ name, url, icon }) => (
       <SocialLink key={name} href={url} icon={icon} />
     ))}
