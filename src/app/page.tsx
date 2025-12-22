@@ -1,5 +1,6 @@
 import { Avatar } from "@/components/avatar"
 import { LinksList } from "@/components/links-list"
+import { SocialLinks } from "@/components/social-links"
 import { ThemeSwitch } from "@/components/theme-switch"
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
         </div>
 
         <LinksList />
+
+        <SocialLinks />
       </div>
     </main>
   )
