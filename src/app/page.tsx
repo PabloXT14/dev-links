@@ -1,19 +1,29 @@
+import { notFound } from "next/navigation"
+import type { Metadata } from "next"
+import { asImageSrc } from "@prismicio/client"
+
 import { Avatar } from "@/components/avatar"
 import { Footer } from "@/components/footer"
 import { LinksList } from "@/components/links-list"
 import { SocialLinks } from "@/components/social-links"
 import { ThemeSwitch } from "@/components/theme-switch"
 
-export default function Home() {
+import { createClient } from "@/prismicio"
+
+export default async function Home() {
+  const client = createClient()
+  const homepage = await client.getSingle("homepage").catch(() => notFound())
+
   return (
     <main className="flex h-screen flex-col items-center bg-[url(/bg-mobile-light.svg)] bg-center bg-cover bg-no-repeat py-14 sm:bg-[url(/bg-desktop-light.svg)] dark:bg-[url(/bg-mobile.svg)] dark:sm:bg-[url(/bg-desktop.svg)]">
       {/* CONTENT */}
       <div className="w-full max-w-147">
         {/* PROFILE */}
         <div className="flex w-full flex-col items-center gap-2 p-6">
-          <Avatar src="/profile.png" alt="Avatar of Pablo Alan" />
-
-          <span className="text-base text-foreground">@pabloalan</span>
+          <Avatar field={homepage.data.avatar} />
+          <span className="text-base text-foreground">
+            {homepage.data.username}
+          </span>
         </div>
 
         {/* THEME SWITCH */}
@@ -29,4 +39,17 @@ export default function Home() {
       </div>
     </main>
   )
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient()
+  const homepage = await client.getSingle("homepage").catch(() => notFound())
+
+  return {
+    title: homepage.data.meta_title,
+    description: homepage.data.meta_description,
+    openGraph: {
+      images: [{ url: asImageSrc(homepage.data.meta_image) ?? "" }],
+    },
+  }
 }

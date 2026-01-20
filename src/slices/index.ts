@@ -2,6 +2,4 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {
-  links: dynamic(() => import("./Links")),
-};
+export const components = {};

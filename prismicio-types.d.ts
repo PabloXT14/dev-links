@@ -69,77 +69,94 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+type HomepageDocumentDataSlicesSlice = never;
+
 /**
- * Content for links-list documents
+ * Content for homepage documents
  */
-interface LinksListDocumentData {
+interface HomepageDocumentData {
   /**
-   * href field in *links-list*
+   * avatar field in *homepage*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: links_list.href
+   * - **API ID Path**: homepage.avatar
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  href: prismic.KeyTextField;
+  avatar: prismic.ImageField<never>;
 
   /**
-   * label field in *links-list*
+   * username field in *homepage*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: links_list.label
+   * - **Placeholder**: @your-username
+   * - **API ID Path**: homepage.username
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  label: prismic.KeyTextField;
+  username: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *homepage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice>; /**
+   * Meta Title field in *homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: homepage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *homepage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
- * links-list document from Prismic
+ * homepage document from Prismic
  *
- * - **API ID**: `links_list`
- * - **Repeatable**: `true`
+ * - **API ID**: `homepage`
+ * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type LinksListDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<LinksListDocumentData>,
-    "links_list",
+export type HomepageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HomepageDocumentData>,
+    "homepage",
     Lang
   >;
 
-export type AllDocumentTypes = LinksListDocument;
-
-/**
- * Default variation for Links Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type LinksSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *Links*
- */
-type LinksSliceVariation = LinksSliceDefault;
-
-/**
- * Links Shared Slice
- *
- * - **API ID**: `links`
- * - **Description**: Links
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type LinksSlice = prismic.SharedSlice<"links", LinksSliceVariation>;
+export type AllDocumentTypes = HomepageDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -162,12 +179,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      LinksListDocument,
-      LinksListDocumentData,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      LinksSlice,
-      LinksSliceVariation,
-      LinksSliceDefault,
     };
   }
 }
