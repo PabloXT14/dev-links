@@ -4,10 +4,11 @@ import { asImageSrc } from "@prismicio/client"
 
 import { Avatar } from "@/components/avatar"
 import { Footer } from "@/components/footer"
-import { LinksList } from "@/components/links-list"
 import { SocialLinks } from "@/components/social-links"
 import { ThemeSwitch } from "@/components/theme-switch"
 
+import { components } from "@/slices"
+import { SliceZone } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 
 export default async function Home() {
@@ -31,7 +32,9 @@ export default async function Home() {
           <ThemeSwitch />
         </div>
 
-        <LinksList />
+        {/* <LinksList /> */}
+
+        <SliceZone slices={homepage.data.slices} components={components} />
 
         <SocialLinks />
 

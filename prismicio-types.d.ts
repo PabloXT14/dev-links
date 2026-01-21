@@ -69,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice = LinksSlice;
 
 /**
  * Content for homepage documents
@@ -158,6 +158,56 @@ export type HomepageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomepageDocument;
 
+/**
+ * Primary content in *Links → Default → Primary*
+ */
+export interface LinksSliceDefaultPrimary {
+  /**
+   * url field in *Links → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links.default.primary.url
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  url: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+}
+
+/**
+ * Default variation for Links Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinksSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LinksSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Links*
+ */
+type LinksSliceVariation = LinksSliceDefault;
+
+/**
+ * Links Shared Slice
+ *
+ * - **API ID**: `links`
+ * - **Description**: Links
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinksSlice = prismic.SharedSlice<"links", LinksSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -183,6 +233,10 @@ declare module "@prismicio/client" {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      LinksSlice,
+      LinksSliceDefaultPrimary,
+      LinksSliceVariation,
+      LinksSliceDefault,
     };
   }
 }
