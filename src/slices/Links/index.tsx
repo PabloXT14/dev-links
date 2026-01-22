@@ -20,7 +20,7 @@ const Links: FC<LinksProps> = ({ slice }) => (
     className="flex flex-col gap-4 p-6"
   >
     {slice.primary.url.map((url) => (
-      <PrismicNextLink key={url.key} field={url} target="_blank">
+      <PrismicNextLink key={url.key} field={url}>
         <Button>{url.text}</Button>
       </PrismicNextLink>
     ))}

@@ -1,26 +1,26 @@
-import { SOCIAL_ICONS } from "@/shared/utils/social-icons"
+import { ICONS_MAP } from "@/shared/utils/icons-map"
 import { SocialLink } from "../social-link"
 
 const SOCIAL_LINKS = [
   {
     name: "GitHub",
     url: "https://github.com/pabloalan",
-    icon: SOCIAL_ICONS["github-icon"],
+    icon: ICONS_MAP["github"],
   },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/pabloalan/",
-    icon: SOCIAL_ICONS["linkedin-icon"],
+    icon: ICONS_MAP["linkedin"],
   },
   {
     name: "Instagram",
     url: "https://www.instagram.com/pabloalan/",
-    icon: SOCIAL_ICONS["instagram-icon"],
+    icon: ICONS_MAP["instagram"],
   },
   {
     name: "Twitter",
     url: "https://twitter.com/pabloalan",
-    icon: SOCIAL_ICONS["twitter-icon"],
+    icon: ICONS_MAP["twitter"],
   },
 ]
 

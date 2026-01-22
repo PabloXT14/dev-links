@@ -1,0 +1,53 @@
+{
+  "id": "social_links",
+  "type": "SharedSlice",
+  "name": "SocialLinks",
+  "description": "SocialLinks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "social_group": {
+          "type": "Group",
+          "config": {
+            "label": "social_group",
+            "repeat": true,
+            "fields": {
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "url",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "icon_name": {
+                "type": "Select",
+                "config": {
+                  "label": "icon_name",
+                  "placeholder": "",
+                  "options": [
+                    "github",
+                    "linkedin",
+                    "instagram",
+                    "twitter"
+                  ],
+                  "default_value": "github"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
