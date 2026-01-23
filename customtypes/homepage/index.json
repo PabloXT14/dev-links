@@ -11,8 +11,8 @@
         "config": {
           "label": "avatar",
           "constraint": {
-            "width": 112,
-            "height": 112
+            "width": "",
+            "height": ""
           },
           "thumbnails": []
         }
