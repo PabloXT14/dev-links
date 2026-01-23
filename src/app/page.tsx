@@ -21,8 +21,12 @@ export default async function Home() {
         {/* PROFILE */}
         <div className="flex w-full flex-col items-center gap-2 p-6">
           <Avatar field={homepage.data.avatar} />
-          <span className="text-base text-foreground">
+          <span className="font-bold text-base text-foreground">
             {homepage.data.username}
+          </span>
+
+          <span className="text-center text-foreground/70 text-sm">
+            {homepage.data.description}
           </span>
         </div>
 
